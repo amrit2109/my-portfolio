@@ -7,7 +7,8 @@
     "dev": "next dev --turbopack",
     "start": "next start",
     "build": "next build",
-   "deploy": "next build && gh-pages -d out"
+    "build:prod": "NODE_ENV=production next build",
+    "deploy": "npm run build:prod && gh-pages -d out"
   },
   "dependencies": {
     "lucide-react": "^0.544.0",
