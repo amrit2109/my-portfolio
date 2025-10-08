@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "homepage": "https://amrit2109.github.io/my-portfolio",
   "name": "my-app",
   "version": "0.1.0",
@@ -7,8 +8,10 @@
     "dev": "next dev --turbopack",
     "start": "next start",
     "build": "next build",
-    "build:prod": "NODE_ENV=production next build",
-    "deploy": "npm run build:prod && gh-pages -d out"
+    "build:static": "cross-env NODE_ENV=production STATIC_EXPORT=true next build",
+    "serve": "npx serve@latest out",
+    "preview": "npm run build:static && npm run serve",
+    "deploy": "npm run build:static && gh-pages -d out"
   },
   "dependencies": {
     "lucide-react": "^0.544.0",
@@ -18,6 +21,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "cross-env": "^10.1.0",
     "tailwindcss": "^4"
   }
 }

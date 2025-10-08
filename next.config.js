@@ -1,12 +1,15 @@
 /** @type {import('next').NextConfig} */
+const isProduction = process.env.NODE_ENV === 'production';
+const isStaticExport = process.env.STATIC_EXPORT === 'true';
+
 const nextConfig = {
-  output: process.env.NODE_ENV === 'production' ? 'export' : undefined,
-  basePath: process.env.NODE_ENV === 'production' ? '/my-portfolio' : '',
+  output: isStaticExport ? 'export' : undefined,
+  basePath: isProduction && isStaticExport ? '/my-portfolio' : '',
   trailingSlash: true,
   images: {
     unoptimized: true,
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/my-portfolio' : '',
+  assetPrefix: isProduction && isStaticExport ? '/my-portfolio' : '',
 };
 
 export default nextConfig;
