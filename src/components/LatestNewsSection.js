@@ -6,7 +6,7 @@ import { fetchTechNewsWithCache } from '../utils/newsApi';
 export default function LatestNewsSection({ 
   heading = "LATEST NEWS FROM THE IT INDUSTRY",
   browseButtonText = "Browse All →",
-  browseButtonLink = "/news",
+  browseButtonLink = "/news", 
   articles: fallbackArticles = []
 }) {
   const [articles, setArticles] = useState(fallbackArticles);
